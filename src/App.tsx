@@ -4,7 +4,7 @@ import './App.scss';
 const App : React.FunctionComponent = props => {
   return (
     <div className={`App`}>
-      <h1>Welcome to the tsx client template app</h1>
+      <h1>Welcome to the tsx lib app test page</h1>
     </div>
   )
 }

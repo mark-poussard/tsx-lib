@@ -5,11 +5,14 @@ interface ILoadComponentProps<T>{
     children : (value : T) => React.ReactNode;
 }
 
+const PROMISE_UNRESOLVED = {};
+type PROMISE_UNRESOLVED_TYPE = {};
+
 const LoadData = <T extends unknown> (props : ILoadComponentProps<T>) => {
-    const [promiseValue, setPromiseValue] = useState<T | null>(null);
+    const [promiseValue, setPromiseValue] = useState<T | PROMISE_UNRESOLVED_TYPE>(PROMISE_UNRESOLVED);
     const [error, setError] = useState<Error | null>(null);
     useEffect(() => {
-        setPromiseValue(null)
+        setPromiseValue(PROMISE_UNRESOLVED)
         setError(null);
         props.promise.then(value => {
             setPromiseValue(value);
@@ -24,14 +27,14 @@ const LoadData = <T extends unknown> (props : ILoadComponentProps<T>) => {
             </div>
         )
     }
-    if(promiseValue == null){
+    if(promiseValue === PROMISE_UNRESOLVED){
         return (
             <div>Loading...</div>
         )
     }
     return (
         <>
-            {props.children(promiseValue)}
+            {props.children(promiseValue as T)}
         </>
     );
 }

@@ -1,17 +1,17 @@
-import { assertType, FieldType } from "./FieldType";
+import { FieldType } from "./FieldType";
 
 class XmlDeserializationHelper{
-    assertField = <T> (xml : Element, field : string, type : FieldType<T>) => {
+    assertField = <IT, OT> (xml : Element, field : string, type : FieldType<IT, OT>) => {
         const elements = xml.getElementsByTagName(field);
         if(elements.length === 0){
             throw new Error(`Field ${field} did not exist.`);
         }
         const rawValue = elements[0].textContent;
-        const value = assertType(rawValue, type);
+        const value = type.assertType(rawValue);
         return value;
     }
 
-    assertOptionalField = <T> (xml : Element, field : string, type : FieldType<T>) => {
+    assertOptionalField = <IT, OT> (xml : Element, field : string, type : FieldType<IT, OT>) => {
         let value = undefined;
         const elements = xml.getElementsByTagName(field);
         if(elements.length > 0){
