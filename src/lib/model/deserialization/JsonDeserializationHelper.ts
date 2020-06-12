@@ -15,6 +15,14 @@ class JsonDeserializationHelper {
         return value;
     }
 
+    assertFieldOrDefault = <IT, OT> (json : any, field : string, type : FieldType<IT, OT>, defaultValue : OT) => {
+        const value = this.assertOptionalField(json, field, type);
+        if(value == null){
+            return defaultValue;
+        }
+        return value;
+    }
+
     assertOptionalField = <IT, OT> (json : any, field : string, type : FieldType<IT, OT>) => {
         let value = undefined;
         const rawValue = json[field];

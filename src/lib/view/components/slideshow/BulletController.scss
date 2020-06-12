@@ -1,0 +1,19 @@
+.bullet-controller{
+    width: 100%;
+    text-align: center;
+    >*{
+        margin-left: 10px;
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+    >.bullet-controller-bullet{
+        cursor: pointer;
+        color : rgb(100, 100, 100);
+        font-size: 30px;
+        &.active{
+            cursor: initial;
+            color : rgb(200, 200, 200);
+        }
+    }
+}

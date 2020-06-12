@@ -1,0 +1,8 @@
+.slideshow-display{
+    position: relative;
+    transition: left .5s;
+    >.slideshow-display-content{
+        display: inline-block;
+        vertical-align: top;
+    }
+}
