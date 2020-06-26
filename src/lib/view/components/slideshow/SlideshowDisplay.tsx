@@ -14,7 +14,7 @@ const SlideshowDisplay : React.FC<ISlideshowDisplayProps> = props => {
                 left : `${props.currentIdx*-100}%`
             }}>
             {props.children.map((content, idx) => 
-                <div className={`slideshow-display-content`}
+                <div key={`${idx}`} className={`slideshow-display-content`}
                     style={{
                         width : `${100/props.children.length}%`
                     }}>
