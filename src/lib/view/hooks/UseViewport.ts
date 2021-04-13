@@ -19,3 +19,7 @@ export const useViewportHeight = () => {
 export const useViewportWidth = () => {
     return useViewport(() => window.innerWidth);
 }
+
+export const useViewportMax = () => {
+    return useViewport(() => window.innerWidth > window.innerHeight ? window.innerWidth : window.innerHeight);
+}

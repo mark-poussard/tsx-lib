@@ -7,6 +7,7 @@ class JsonDeserializationHelper {
         if(rawValue == null){
             throw new Error(`Field ${field} did not exist.`);
         }
+        return rawValue;
     }
 
     assertField = <IT, OT> (json : any, field : string, type : FieldType<IT, OT>) => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 
 export const useMediaQuery = (query : string) => {
-    const [matches, setMatches] = useState(false);
+    const [matches, setMatches] = useState(window.matchMedia(query).matches);
     const updateMatches = useCallback(() => {
         setMatches(window.matchMedia(query).matches);
     }, []);

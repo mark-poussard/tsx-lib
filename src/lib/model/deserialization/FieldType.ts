@@ -7,7 +7,7 @@ enum FieldTypeEnum{
     DATE = "DATE",
     OBJECT = "OBJECT",
     ARRAY = "ARRAY",
-    ENUM = "ENUM"
+    ENUM = "ENUM",
 }
 
 export class FieldType<IT, OT = IT>{
